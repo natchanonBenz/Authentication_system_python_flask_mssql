@@ -1,12 +1,10 @@
 from flask import Flask, render_template,request,session, redirect, url_for,Response,jsonify,make_response
 from flask_debug import Debug
 import datetime
-import plotly
-import plotly.graph_objs as go
 import json
-
 import sys
-sys.path.append('./auto_diag_module/')
+
+sys.path.append('./Test/')
 
 server_name = 'DESKTOP-S66UB4P\MSSQLSERVER_2014' 
 username = 'XXX' 
@@ -28,7 +26,7 @@ def index():
         password = str(request.form['password'])
 
         if(username =='admin' and password=='admin'):
-            return render_template('AutoDiagnostic.html',username=username)
+            return render_template('XXX.html',username=username)
         else:
             # database_usage
             if(database_used == 1):
@@ -75,11 +73,11 @@ def index():
                     if(roleuser=='1'):
                         print('Login by admin')
                         session['registerurl'] = 1
-                        return render_template('AutoDiagnostic.html',username=username,createusertag = 'block')
+                        return render_template('XXX.html',username=username,createusertag = 'block')
                     else:
                         print('Login by user')
                         session['registerurl'] = 1
-                        return render_template('AutoDiagnostic.html',username=username,createusertag = 'none')             
+                        return render_template('XXX.html',username=username,createusertag = 'none')             
                 else:
                     return render_template('indexflask.html', status ="incorrect username or password")
             return render_template('indexflask.html', status ="incorrect username or password")
